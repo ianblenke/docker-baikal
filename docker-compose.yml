@@ -1,0 +1,26 @@
+sabredav:
+  build: .
+  links:
+    - mysql
+  ports:
+    - 80:80
+  volumes:
+    - /Specific:/baikal/Specific
+  environment:
+    REALM: "sabredav"
+    PROJECT_DB_MYSQL_HOST: "mysql:23306"
+
+mysql:
+  build: .
+  dockerfile: Dockerfile.mysql
+  environment:
+     MYSQL_DATABASE: 'sabredav'
+     MYSQL_ROOT_PASSWORD: 'topsecret'
+litmus:
+  build: .
+  dockerfile: Dockerfile.litmus
+  working_dir: /litmus
+  links:
+    - sabredav
+  tty: true
+  command: 'make URL=http://sabredav/ CREDS="admin topsecret" check'
