@@ -1,4 +1,4 @@
-CREATE TABLE calendarobjects (
+CREATE TABLE IF NOT EXISTS calendarobjects (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     calendardata MEDIUMBLOB,
     uri VARBINARY(200),
@@ -13,7 +13,7 @@ CREATE TABLE calendarobjects (
     UNIQUE(calendarid, uri)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE calendars (
+CREATE TABLE IF NOT EXISTS calendars (
     id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     principaluri VARBINARY(100),
     displayname VARCHAR(100),
@@ -28,7 +28,7 @@ CREATE TABLE calendars (
     UNIQUE(principaluri, uri)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE calendarchanges (
+CREATE TABLE IF NOT EXISTS calendarchanges (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     uri VARBINARY(200) NOT NULL,
     synctoken INT(11) UNSIGNED NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE calendarchanges (
     INDEX calendarid_synctoken (calendarid, synctoken)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE calendarsubscriptions (
+CREATE TABLE IF NOT EXISTS calendarsubscriptions (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     uri VARBINARY(200) NOT NULL,
     principaluri VARBINARY(100) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE calendarsubscriptions (
     UNIQUE(principaluri, uri)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE schedulingobjects (
+CREATE TABLE IF NOT EXISTS schedulingobjects (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     principaluri VARBINARY(255),
     calendardata MEDIUMBLOB,

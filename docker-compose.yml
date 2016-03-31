@@ -3,12 +3,13 @@ sabredav:
   links:
     - mysql
   ports:
-    - 80:80
-  volumes:
-    - /Specific:/baikal/Specific
+    - 80:8080
+  volumes: []
+  tty: true
   environment:
     REALM: "sabredav"
     PROJECT_DB_MYSQL_HOST: "mysql:23306"
+    PROJECT_DB_MYSQL_DBNAME: "sabredav"
 
 mysql:
   build: .

@@ -1,4 +1,4 @@
-CREATE TABLE addressbooks (
+CREATE TABLE IF NOT EXISTS addressbooks (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     principaluri VARBINARY(255),
     displayname VARCHAR(255),
@@ -8,7 +8,7 @@ CREATE TABLE addressbooks (
     UNIQUE(principaluri(100), uri(100))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE cards (
+CREATE TABLE IF NOT EXISTS cards (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     addressbookid INT(11) UNSIGNED NOT NULL,
     carddata MEDIUMBLOB,
@@ -18,7 +18,7 @@ CREATE TABLE cards (
     size INT(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE addressbookchanges (
+CREATE TABLE IF NOT EXISTS addressbookchanges (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     uri VARBINARY(200) NOT NULL,
     synctoken INT(11) UNSIGNED NOT NULL,

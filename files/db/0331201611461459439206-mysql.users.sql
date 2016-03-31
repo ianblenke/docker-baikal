@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARBINARY(50),
     digesta1 VARBINARY(32),
@@ -6,4 +6,6 @@ CREATE TABLE users (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO users (username,digesta1) VALUES
-('admin',  '87fd274b7b6c01e48d7c2f965da8ddf7');
+('admin',  '87fd274b7b6c01e48d7c2f965da8ddf7')
+ON DUPLICATE KEY UPDATE
+digesta1=VALUES(digesta1);
