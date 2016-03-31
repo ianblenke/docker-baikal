@@ -6,14 +6,18 @@ sabredav:
     - 80:8080
   volumes: []
   tty: true
+  command: >-
+    sh -c "
+    /migrate.sh &&
+    /start.sh "
   environment:
     REALM: "sabredav"
-    PROJECT_DB_MYSQL_HOST: "mysql:23306"
+    PROJECT_DB_MYSQL_HOST: "mysql"
+    PROJECT_DB_MYSQL_PORT: "3306"
     PROJECT_DB_MYSQL_DBNAME: "sabredav"
 
 mysql:
-  build: .
-  dockerfile: Dockerfile.mysql
+  image: mysql
   environment:
      MYSQL_DATABASE: 'sabredav'
      MYSQL_ROOT_PASSWORD: 'topsecret'

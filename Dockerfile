@@ -2,7 +2,7 @@ FROM alpine:3.2
 MAINTAINER Nung Bedell	<nung.bedell@vtcsecure.com>
 
 RUN apk --update add gettext unzip lighttpd php-cgi php-ctype php-dom \
-                     php-pdo_sqlite php-pdo_mysql php-xml openssl \
+                     php-pdo_sqlite php-pdo_mysql php-xml openssl mysql-client \
     && rm -rf /var/cache/apk/*
 
 ENV VERSION		0.3.5
@@ -28,7 +28,8 @@ EXPOSE 8080
 STOPSIGNAL SIGKILL
 
 ENV \
-        PROJECT_DB_MYSQL_HOST=mysqlhost:3306 \
+        PROJECT_DB_MYSQL_HOST=mysqlhost \
+        PROJECT_DB_MYSQL_PORT=3306 \
         PROJECT_DB_MYSQL_DBNAME=sabredav \
         PROJECT_DB_MYSQL_USERNAME=root \
         PROJECT_DB_MYSQL_PASSWORD=topsecret
