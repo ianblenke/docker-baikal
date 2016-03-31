@@ -10,7 +10,7 @@ docker run \
     --name baikal \
     --restart always \
     --detach \
-    bambucha/baikal
+    vtcsecurellc/baikal
 ```
 
 Setup Baikal using [admin](http://localhost/admin).
@@ -38,7 +38,7 @@ docker run \
     --name baikal \
     --restart always \
     --detach \
-    bambucha/baikal
+    vtcsecurellc/baikal
 ```
 
 ### Backup
@@ -64,7 +64,7 @@ docker run \
     --name baikal \
     --restart always \
     --detach \
-    bambucha/baikal
+    vtcsecurellc/baikal
 ```
 
 Create data container:
@@ -102,7 +102,7 @@ docker start baikal
 ```shell
 git clone https://github.com/bambocher/docker-baikal
 cd docker-baikal
-docker build --tag bambucha/baikal .
+docker build --tag vtcsecurellc/baikal .
 ```
 
 ### License
