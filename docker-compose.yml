@@ -15,6 +15,7 @@ sabredav:
     PROJECT_DB_MYSQL_HOST: "mysql"
     PROJECT_DB_MYSQL_PORT: "3306"
     PROJECT_DB_MYSQL_DBNAME: "sabredav"
+    MAX_TRIES: 7
 
 mysql:
   image: mysql

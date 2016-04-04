@@ -54,7 +54,7 @@ define("PROJECT_SQLITE_FILE", PROJECT_PATH_SPECIFIC . "db/db.sqlite");
 define("PROJECT_DB_MYSQL", TRUE);
 
 # MySQL > Host, including ':portnumber' if port is not the default one (3306)
-define("PROJECT_DB_MYSQL_HOST", 'mysql:23306');
+define("PROJECT_DB_MYSQL_HOST", 'mysql:3306');
 
 # MySQL > Database name
 define("PROJECT_DB_MYSQL_DBNAME", 'sabredav');

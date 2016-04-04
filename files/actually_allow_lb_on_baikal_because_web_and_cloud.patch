@@ -1,0 +1,11 @@
+--- baikal/Core/Frameworks/Flake/Framework.php
++++ baikalious/Core/Frameworks/Flake/Framework.php
+@@ -175,7 +175,7 @@
+ 		$sHttpBaseUrl = self::rmQuery($sHttpBaseUrl);
+ 		$sHttpBaseUrl = self::rmScriptName($sHttpBaseUrl, $sScript);
+ 		$sHttpBaseUrl = self::rmProjectContext($sHttpBaseUrl);
+-		define("PROJECT_URI", $sProtocol . "://" . $_SERVER["HTTP_HOST"] . $sHttpBaseUrl);
++		define("PROJECT_URI", $sHttpBaseUrl);
+ 		unset($sScript); unset($sDirName); unset($sBaseUrl); unset($sProtocol); unset($sHttpBaseUrl);
+ 
+ 		#################################################################################################

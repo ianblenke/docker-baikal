@@ -1,7 +1,7 @@
 FROM alpine:3.2
 MAINTAINER Nung Bedell	<nung.bedell@vtcsecure.com>
 
-RUN apk --update add gettext unzip lighttpd php-cgi php-ctype php-dom \
+RUN apk --update add gettext unzip lighttpd php-cgi php-ctype php-dom patch \
                      php-pdo_sqlite php-pdo_mysql php-xml openssl mysql-client \
     && rm -rf /var/cache/apk/*
 

@@ -1,2 +1,2 @@
 [mysqld]
-port = 23306
+port = 3306
